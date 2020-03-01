@@ -1,42 +1,81 @@
 package ru.job4j.srp;
 
+import ru.job4j.srp.operations.*;
+
 public class InteractCalc implements Calc {
 
-    /**
-     * Class Calculator for calculating arithmetic operations:
-     * 1.add - addition.
-     * 2.div - division.
-     * 3.multiply - multiplication.
-     * 4.subtrack - subtraction.
-     *
-     * @author Yuri Nehodov
-     * @since 1.0
-     * @version 1.0
-     */
+    private final CalcOperation[] operations = {
+            new Addition(),
+            new Division(),
+            new Multiplication(),
+            new Subtraction()
+    };
 
-    private final String[] operations = {"Addition", "Division", "Multiplication", "Subtraction"};
+    private final int clear;
+    private final int repeat;
+    private final int exit;
 
-    @Override
-    public double add(double first, double second) {
-        return first + second;
+    private double lastValue;
+    private int lastOperation;
+    private boolean isClear;
+
+    public InteractCalc() {
+        isClear = true;
+        this.clear = this.operations.length;
+        this.repeat = this.operations.length + 1;
+        this.exit = this.operations.length + 2;
     }
 
     @Override
-    public double div(double first, double second) {
-        return first / second;
+    public void calculate(double first, double second, int operationNumber) {
+        this.isClear = false;
+        this.lastOperation = operationNumber;
+        this.lastValue = this.operations[operationNumber].calculate(first, second);
     }
 
     @Override
-    public double multiply(double first, double second) {
-        return first * second;
+    public void calculateAgain(double second) {
+        calculate(this.lastValue, second, this.lastOperation);
     }
 
     @Override
-    public double subtrack(double first, double second) {
-        return first - second;
+    public void clear() {
+        this.lastValue = 0;
+        this.isClear = true;
     }
 
-    public String[] getOperations() {
-        return operations;
+    @Override
+    public int getLastOperation() {
+        return lastOperation;
+    }
+
+    @Override
+    public int getClear() {
+        return clear;
+    }
+
+    @Override
+    public int getRepeat() {
+        return repeat;
+    }
+
+    @Override
+    public int getExit() {
+        return exit;
+    }
+
+    @Override
+    public boolean isClear() {
+        return this.isClear;
+    }
+
+    @Override
+    public CalcOperation[] getOperations() {
+        return this.operations;
+    }
+
+    @Override
+    public double getLastValue() {
+        return this.lastValue;
     }
 }

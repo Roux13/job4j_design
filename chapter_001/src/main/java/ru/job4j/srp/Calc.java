@@ -1,12 +1,27 @@
 package ru.job4j.srp;
 
+
+import ru.job4j.srp.operations.CalcOperation;
+
 public interface Calc {
 
-    double add(double first, double second);
+    abstract void calculate(double first, double second, int operationNumber);
 
-    double div(double first, double second);
+    void calculateAgain(double second);
 
-    double multiply(double first, double second);
+    void clear();
 
-    double subtrack(double first, double second);
+    int getLastOperation();
+
+    int getClear();
+
+    int getRepeat();
+
+    int getExit();
+
+    boolean isClear();
+
+    abstract CalcOperation[] getOperations();
+
+    double getLastValue();
 }
