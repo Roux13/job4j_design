@@ -7,27 +7,25 @@ import java.util.regex.Pattern;
 
 public class SimpleGenerator implements Template {
 
-    private final Pattern keys = Pattern.compile("\\$\\{\\S*}");
+    private final Pattern keys = Pattern.compile("\\$\\{\\S*\\}");
 
     @Override
     public String generate(String template, String[] data) throws NoKeysInMapException, MoreKeysThanParametersException {
         Matcher matcher = keys.matcher(template);
-        Map<String, String> map = new HashMap<>();
+        int index = 0;
+        int keyCounter = 0;
+        String currentKey;
         while (matcher.find()) {
-            map.putIfAbsent(matcher.group(), null);
+            keyCounter++;
+            currentKey = matcher.group();
+            template = template.replaceAll(Pattern.quote(currentKey), data[index++]);
+            matcher = keys.matcher(template);
         }
-        matcher.reset();
-        if (map.size() == 0) {
+        if (keyCounter == 0) {
             throw new NoKeysInMapException();
         }
-        if (map.size() < data.length) {
+        if (keyCounter < data.length) {
             throw new MoreKeysThanParametersException();
-        }
-        int[] index = {0};
-        map.keySet().forEach(key -> map.put(key, data[index[0]++]));
-        while (matcher.find()) {
-            template = matcher.replaceFirst(map.get(matcher.group()));
-            matcher = this.keys.matcher(template);
         }
         return template;
     }
