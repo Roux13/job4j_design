@@ -1,6 +1,6 @@
-package ru.job4j.srp;
+package ru.job4j.calculator;
 
-import ru.job4j.srp.operations.*;
+import ru.job4j.calculator.operations.*;
 
 public class InteractCalc implements Calc {
 

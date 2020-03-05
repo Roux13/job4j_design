@@ -1,7 +1,7 @@
-package ru.job4j.srp;
+package ru.job4j.calculator;
 
 
-import ru.job4j.srp.operations.CalcOperation;
+import ru.job4j.calculator.operations.CalcOperation;
 
 public interface Calc {
 

@@ -1,8 +1,8 @@
-package ru.job4j.srp.controller;
+package ru.job4j.calculator.controller;
 
-import ru.job4j.srp.Calc;
-import ru.job4j.srp.input.CalcInput;
-import ru.job4j.srp.view.CalcView;
+import ru.job4j.calculator.Calc;
+import ru.job4j.calculator.input.CalcInput;
+import ru.job4j.calculator.view.CalcView;
 
 public class CalcController {
 

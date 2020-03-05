@@ -1,6 +1,6 @@
-package ru.job4j.srp.view;
+package ru.job4j.calculator.view;
 
-import ru.job4j.srp.operations.CalcOperation;
+import ru.job4j.calculator.operations.CalcOperation;
 
 public class ConsoleCalcView implements CalcView {
 

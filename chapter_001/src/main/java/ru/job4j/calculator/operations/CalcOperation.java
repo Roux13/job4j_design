@@ -1,4 +1,4 @@
-package ru.job4j.srp.operations;
+package ru.job4j.calculator.operations;
 
 public interface CalcOperation {
 

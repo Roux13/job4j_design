@@ -1,10 +1,10 @@
-package ru.job4j.srp;
+package ru.job4j.calculator;
 
-import ru.job4j.srp.controller.CalcController;
-import ru.job4j.srp.input.CalcInput;
-import ru.job4j.srp.input.ConsoleCalcInput;
-import ru.job4j.srp.view.CalcView;
-import ru.job4j.srp.view.ConsoleCalcView;
+import ru.job4j.calculator.controller.CalcController;
+import ru.job4j.calculator.input.CalcInput;
+import ru.job4j.calculator.input.ConsoleCalcInput;
+import ru.job4j.calculator.view.CalcView;
+import ru.job4j.calculator.view.ConsoleCalcView;
 
 public class CalcInit {
 

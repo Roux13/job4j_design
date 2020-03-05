@@ -1,4 +1,4 @@
-package ru.job4j.srp.input;
+package ru.job4j.calculator.input;
 
 import java.io.BufferedReader;
 import java.io.IOException;
