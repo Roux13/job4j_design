@@ -19,7 +19,7 @@ public class ConsoleCalcView implements CalcView {
         this.showResult(lastValue);
         this.show(String.format("Select an operation(0 - %d):", exit));
         for (int i = 0; i < operations.length; i++) {
-            this.show(String.format("%d. %s.", i, operations[i].getName()));
+            this.show(String.format("%d. %s", i, operations[i].getSymbol()));
         }
         this.show(String.format("%d. Clear.", clear));
         this.show(String.format("%d. Repeat operation.", repeat));

@@ -6,10 +6,10 @@ import ru.job4j.calculator.input.ConsoleCalcInput;
 import ru.job4j.calculator.view.CalcView;
 import ru.job4j.calculator.view.ConsoleCalcView;
 
-public class CalcInit {
+public class InteractCalcInit {
 
     public static void main(String[] args) {
-        Calc calculator = new InteractCalc();
+        Calc calculator = CalcBuilder.getInteractCalc();
         CalcView view = new ConsoleCalcView();
         CalcInput input = new ConsoleCalcInput();
         CalcController controller = new CalcController(view, input, calculator);

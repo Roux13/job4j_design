@@ -5,7 +5,7 @@ import ru.job4j.calculator.operations.CalcOperation;
 
 public interface Calc {
 
-    abstract void calculate(double first, double second, int operationNumber);
+    void calculate(double first, double second, int operationNumber);
 
     void calculateAgain(double second);
 
@@ -21,7 +21,7 @@ public interface Calc {
 
     boolean isClear();
 
-    abstract CalcOperation[] getOperations();
+    CalcOperation[] getOperations();
 
     double getLastValue();
 }

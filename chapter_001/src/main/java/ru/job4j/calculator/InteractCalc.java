@@ -4,7 +4,7 @@ import ru.job4j.calculator.operations.*;
 
 public class InteractCalc implements Calc {
 
-    private final CalcOperation[] operations = {
+    private CalcOperation[] operations = {
             new Addition(),
             new Division(),
             new Multiplication(),
@@ -20,7 +20,15 @@ public class InteractCalc implements Calc {
     private boolean isClear;
 
     public InteractCalc() {
-        isClear = true;
+        this.isClear = true;
+        this.clear = this.operations.length;
+        this.repeat = this.operations.length + 1;
+        this.exit = this.operations.length + 2;
+    }
+
+    public InteractCalc(CalcOperation[] operations) {
+        this.operations = operations;
+        this.isClear = true;
         this.clear = this.operations.length;
         this.repeat = this.operations.length + 1;
         this.exit = this.operations.length + 2;

@@ -4,7 +4,7 @@ import ru.job4j.calculator.Calc;
 import ru.job4j.calculator.input.CalcInput;
 import ru.job4j.calculator.view.CalcView;
 
-public class CalcController {
+public class CalcController implements Controller {
 
     private final CalcView view;
     private final CalcInput input;
@@ -20,6 +20,7 @@ public class CalcController {
         this.view.installMenu(calculator.getClear(), calculator.getRepeat(), calculator.getExit());
     }
 
+    @Override
     public void run() {
         while (this.isRunning) {
             view.showMenu(calculator.getOperations(), calculator.getLastValue());
@@ -43,6 +44,7 @@ public class CalcController {
         }
     }
 
+    @Override
     public void performOperation(final int operation) {
         this.askFirstArgument(operation);
         double first = input.receiveNumber();
@@ -51,6 +53,7 @@ public class CalcController {
         this.calculator.calculate(first, second, operation);
     }
 
+    @Override
     public void performOperationWithLastValue(final int operation) {
         double first = calculator.getLastValue();
         this.askSecondArgument(first, operation);
@@ -58,6 +61,7 @@ public class CalcController {
         calculator.calculate(first, second, operation);
     }
 
+    @Override
     public void repeatLastOperation() {
         int lastOperation = calculator.getLastOperation();
         double lastValue = calculator.getLastValue();
@@ -66,19 +70,34 @@ public class CalcController {
         calculator.calculate(lastValue, second, lastOperation);
     }
 
-    private void askFirstArgument(final int operation) {
+    @Override
+    public void askFirstArgument(final int operation) {
         view.refresh();
         view.showResult(calculator.getLastValue());
         view.show(String.format("%s:", calculator.getOperations()[operation].getName()));
         view.show("Input first argument:");
     }
 
-    private void askSecondArgument(final double first, final int operation) {
+    @Override
+    public void askSecondArgument(final double first, final int operation) {
         view.refresh();
         view.showResult(calculator.getLastValue());
         view.show(String.format("%s:", calculator.getOperations()[operation].getName()));
         view.show(String.format("%f %s ", first, calculator.getOperations()[operation].getSymbol()));
         view.show("Input second argument:");
+    }
+
+
+    public CalcView getView() {
+        return view;
+    }
+
+    public CalcInput getInput() {
+        return input;
+    }
+
+    public Calc getCalculator() {
+        return calculator;
     }
 
 }
