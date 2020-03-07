@@ -2,15 +2,22 @@ package ru.job4j.calculator.operations;
 
 import java.util.Objects;
 
-public class Multiplication implements CalcOperation {
+public class Cotangent implements CalcOperation {
+
     @Override
     public double calculate(double... args) {
-        return args[0] * args[1];
+        double radians = Math.toRadians(90 - args[0]);
+        return Math.tan(radians);
     }
 
     @Override
     public String getSymbol() {
-        return "*";
+        return "COT()";
+    }
+
+    @Override
+    public boolean isUnaryOperator() {
+        return true;
     }
 
     @Override
@@ -22,4 +29,5 @@ public class Multiplication implements CalcOperation {
     public int hashCode() {
         return Objects.hashCode(this.getClass());
     }
+
 }

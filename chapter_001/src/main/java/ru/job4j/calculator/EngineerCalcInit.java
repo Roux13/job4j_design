@@ -10,7 +10,7 @@ import ru.job4j.calculator.view.ConsoleCalcView;
 public class EngineerCalcInit {
 
     public static void main(String[] args) {
-        Calc calculator = CalcBuilder.getEngineerCalc();
+        Calc calculator = CalcFabric.getEngineerCalc();
         CalcView view = new ConsoleCalcView();
         CalcInput input = new ConsoleCalcInput();
         Controller controller = new EngineerCalcController(view, input, calculator);

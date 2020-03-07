@@ -2,15 +2,22 @@ package ru.job4j.calculator.operations;
 
 import java.util.Objects;
 
-public class Multiplication implements CalcOperation {
+public class Tangent implements CalcOperation {
+
     @Override
     public double calculate(double... args) {
-        return args[0] * args[1];
+        double radians = Math.toRadians(args[0]);
+        return Math.tan(radians);
     }
 
     @Override
     public String getSymbol() {
-        return "*";
+        return "TAN()";
+    }
+
+    @Override
+    public boolean isUnaryOperator() {
+        return true;
     }
 
     @Override

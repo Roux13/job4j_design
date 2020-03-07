@@ -1,8 +1,10 @@
 package ru.job4j.calculator.operations;
 
+import java.util.Objects;
+
 public interface CalcOperation {
 
-    double calculate(double first, double second);
+    double calculate(double... args);
 
     String getSymbol();
 
@@ -10,7 +12,8 @@ public interface CalcOperation {
         return getClass().getSimpleName();
     }
 
-    default boolean isBinaryOperator() {
-        return true;
+    default boolean isUnaryOperator() {
+        return false;
     }
+
 }

@@ -44,10 +44,10 @@ public class EngineerCalcController implements Controller {
 
     @Override
     public void performOperation(int operation) {
-        if (controller.getCalculator().getOperations()[operation].isBinaryOperator()) {
-            controller.performOperation(operation);
-        } else {
+        if (controller.getCalculator().getOperations()[operation].isUnaryOperator()) {
             this.performUnaryOperation(operation);
+        } else {
+            controller.performOperation(operation);
         }
     }
 
@@ -59,12 +59,13 @@ public class EngineerCalcController implements Controller {
 
     @Override
     public void performOperationWithLastValue(int operation) {
-        controller.performOperationWithLastValue(operation);
+        this.askFirstArgument(operation);
+        controller.getCalculator().calculate(controller.getCalculator().getLastValue(), stub, operation);
     }
 
     @Override
     public void repeatLastOperation() {
-        controller.repeatLastOperation();
+        this.performOperationWithLastValue(controller.getCalculator().getLastOperation());
     }
 
     @Override

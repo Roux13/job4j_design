@@ -147,4 +147,32 @@ public class InteractCalcTest {
         assertThat(calc.getLastValue(), is(0.0));
         assertThat(calc.isClear(), is(true));
     }
+
+    @Test
+    public void calculateWhenWhenEngineerCalcAndOpCosine0ThenResult1() {
+        Calc calc = CalcFabric.getEngineerCalc();
+        double first = 0;
+        double stub = 1;
+        int operationNumber = 7;
+        double expected = 1;
+
+        calc.calculate(first, stub, operationNumber);
+        double actual = calc.getLastValue();
+
+        assertThat(actual, is(expected));
+    }
+
+    @Test
+    public void calculateWhenEngineerCalcAndOpCosine60ThenResult05() {
+        Calc calc = CalcFabric.getEngineerCalc();
+        double first = 60;
+        double stub = 1;
+        int operationNumber = 7;
+        double expected = 0.5;
+
+        calc.calculate(first, stub, operationNumber);
+        double actual = calc.getLastValue();
+
+        assertEquals(expected, actual, 0.0001);
+    }
 }

@@ -2,6 +2,8 @@ package ru.job4j.calculator;
 
 import ru.job4j.calculator.operations.*;
 
+import java.util.Arrays;
+
 public class InteractCalc implements Calc {
 
     private CalcOperation[] operations = {
@@ -85,5 +87,22 @@ public class InteractCalc implements Calc {
     @Override
     public double getLastValue() {
         return this.lastValue;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        InteractCalc that = (InteractCalc) o;
+        return Arrays.equals(operations, that.operations);
+    }
+
+    @Override
+    public int hashCode() {
+        return Arrays.hashCode(operations);
     }
 }

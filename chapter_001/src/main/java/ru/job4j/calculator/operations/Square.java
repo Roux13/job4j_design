@@ -2,15 +2,21 @@ package ru.job4j.calculator.operations;
 
 import java.util.Objects;
 
-public class Multiplication implements CalcOperation {
+public class Square implements CalcOperation {
+
     @Override
     public double calculate(double... args) {
-        return args[0] * args[1];
+        return Math.pow(args[0], 2);
     }
 
     @Override
     public String getSymbol() {
-        return "*";
+        return "X^2";
+    }
+
+    @Override
+    public boolean isUnaryOperator() {
+        return true;
     }
 
     @Override
