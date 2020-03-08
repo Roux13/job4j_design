@@ -1,9 +1,9 @@
-package ru.job4j.lsp;
+package ru.job4j.lsp.storage;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class Trash implements Storage {
+public class Shop implements Storage {
 
     private final List<Food> products = new ArrayList<>();
 

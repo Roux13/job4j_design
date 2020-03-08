@@ -1,9 +1,9 @@
-package ru.job4j.lsp;
+package ru.job4j.lsp.storage;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class Shop implements Storage {
+public class Warehouse implements Storage {
 
     private final List<Food> products = new ArrayList<>();
 
@@ -18,5 +18,4 @@ public class Shop implements Storage {
     public List<Food> getProducts() {
         return products;
     }
-
 }

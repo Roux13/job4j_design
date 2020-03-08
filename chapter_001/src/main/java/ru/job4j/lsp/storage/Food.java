@@ -1,4 +1,4 @@
-package ru.job4j.lsp;
+package ru.job4j.lsp.storage;
 
 import java.time.LocalDate;
 import java.util.Objects;
