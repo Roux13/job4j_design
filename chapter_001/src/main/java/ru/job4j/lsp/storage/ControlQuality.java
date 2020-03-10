@@ -21,14 +21,26 @@ public class ControlQuality {
     }
 
     public void redistribute() {
-        checkStorage(warehouse);
-        checkStorage(shop);
+        resort();
+    }
+
+    private void resort() {
+        Storage tempStorage = new Warehouse();
+        takeAllProducts(warehouse, tempStorage);
+        takeAllProducts(shop, tempStorage);
+        takeAllProducts(trash, tempStorage);
+        checkStorage(tempStorage);
     }
 
     public double calculateLife(Food food) {
         int storageLife = Period.between(food.getCreateDate(), food.getExpiryDate()).getDays();
         int remainingLife = Period.between(LocalDate.now(), food.getExpiryDate()).getDays();
         return  (1.0 * (storageLife - remainingLife) / storageLife) * 100.0;
+    }
+
+    private void takeAllProducts(Storage src, Storage dest) {
+        src.getProducts().forEach(dest::add);
+        src.getProducts().clear();
     }
 
     private void checkStorage(Storage storage) {
