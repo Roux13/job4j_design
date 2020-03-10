@@ -75,7 +75,7 @@ public class CalcController implements Controller {
         view.refresh();
         view.showResult(calculator.getLastValue());
         view.show(String.format("%s:", calculator.getOperations()[operation].getName()));
-        view.show("Output first argument:");
+        view.show("Input first argument:");
     }
 
     @Override
@@ -84,7 +84,7 @@ public class CalcController implements Controller {
         view.showResult(calculator.getLastValue());
         view.show(String.format("%s:", calculator.getOperations()[operation].getName()));
         view.show(String.format("%f %s ", first, calculator.getOperations()[operation].getSymbol()));
-        view.show("Output second argument:");
+        view.show("Input second argument:");
     }
 
 
