@@ -1,5 +1,7 @@
 package ru.job4j.lsp.parking;
 
+import ru.job4j.lsp.parking.interfaces.Car;
+
 public class ParkingManager {
 
     private final Parking parking;
@@ -16,19 +18,19 @@ public class ParkingManager {
         return new int[0];
     }
 
-    public ParkingAddress takePassengerSpaces(Car car) throws NoSpaceException {
+    public ParkingAddress takePassengerSpace(Car car) throws NoSpaceException {
         return null;
     }
 
-    public ParkingAddress takeTruckSpaces(Car car) throws NoSpaceException {
+    public ParkingAddress takeTruckSpace(Car car) throws NoSpaceException {
         return null;
     }
 
-    public void clearPassengerSpaces(Car car) {
+    public void clearPassengerSpace(Car car) {
 
     }
 
-    public void clearTruckSpaces(Car car) {
+    public void clearTruckSpace(Car car) {
 
     }
 }

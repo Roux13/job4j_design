@@ -1,6 +1,8 @@
 package ru.job4j.lsp.parking;
 
-public class Truck implements Car {
+import ru.job4j.lsp.parking.interfaces.Car;
+
+public class Truck {
 
     private final int truckSize;
     private final int passengerSize;
@@ -16,17 +18,18 @@ public class Truck implements Car {
         return truckSize;
     }
 
-    public int getPassengerSize() {
-        return passengerSize;
-    }
+//    @Override
+//    public int getSize() {
+//        return passengerSize;
+//    }
 
-    @Override
-    public ParkingAddress getParkingAddress() {
-        return parkingAddress;
-    }
-
-    @Override
-    public void setParkingAddress(ParkingAddress parkingAddress) {
-        this.parkingAddress = parkingAddress;
-    }
+//    @Override
+//    public ParkingAddress getParkingAddress() {
+//        return parkingAddress;
+//    }
+//
+//    @Override
+//    public void setParkingAddress(ParkingAddress parkingAddress) {
+//        this.parkingAddress = parkingAddress;
+//    }
 }
