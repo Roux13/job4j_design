@@ -1,16 +1,17 @@
 package ru.job4j.lsp.parking.interfaces;
 
 import ru.job4j.lsp.parking.NoSpaceException;
-import ru.job4j.lsp.parking.ParkingAddress;
+
+import java.util.List;
 
 public interface Manager {
 
-    public ParkingAddress takePassengerSpace(Car car) throws NoSpaceException;
+    void putCarToParking(Car car);
 
-    public ParkingAddress takeTruckSpace(Car car) throws NoSpaceException;
+    List<Integer> checkSpaces(Space[] spaces, int size);
 
-    public void clearPassengerSpace(Car car);
+    Address getSpace(Car car) throws NoSpaceException;
 
-    public void clearTruckSpace(Car car);
+    void removeCar(Car car);
 
 }

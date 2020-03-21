@@ -1,13 +1,15 @@
 package ru.job4j.lsp.parking.interfaces;
 
+import java.util.List;
+
 public interface Address {
 
-    public boolean isPassengerParking();
+    boolean isPassengerParking();
 
-    public void setPassengerParking(boolean passengerParking);
+    void setPassengerParking(boolean passengerParking);
 
-    public int[] getAddress();
+    List<Integer> getNumbers();
 
-    public void setAddress(int[] address);
+    void setNumbers(List<Integer> address);
 
 }

@@ -1,8 +1,6 @@
 package ru.job4j.lsp.parking.interfaces;
 
-import ru.job4j.lsp.parking.ParkingSpace;
-
-public interface ParkingInterface {
+public interface IParking {
 
     Space[] getPassengerSpaces();
 
