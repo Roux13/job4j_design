@@ -1,35 +1,49 @@
 package ru.job4j.lsp.parking;
 
+import ru.job4j.lsp.parking.interfaces.Address;
 import ru.job4j.lsp.parking.interfaces.Car;
 
-public class Truck {
+import java.util.Objects;
 
-    private final int truckSize;
-    private final int passengerSize;
+public class Truck implements Car {
 
-    private ParkingAddress parkingAddress;
+    private final int size;
 
-    public Truck(int passengerSize) {
-        this.truckSize = 1;
-        this.passengerSize = passengerSize;
+    private Address address;
+
+    public Truck(int size) {
+        this.size = size;
     }
 
-    public int getTruckSize() {
-        return truckSize;
+    @Override
+    public int getSize() {
+        return this.size;
     }
 
-//    @Override
-//    public int getSize() {
-//        return passengerSize;
-//    }
+    @Override
+    public Address getAddress() {
+        return this.address;
+    }
 
-//    @Override
-//    public ParkingAddress getParkingAddress() {
-//        return parkingAddress;
-//    }
-//
-//    @Override
-//    public void setParkingAddress(ParkingAddress parkingAddress) {
-//        this.parkingAddress = parkingAddress;
-//    }
+    @Override
+    public void setAddress(Address address) {
+        this.address = address;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        Truck truck = (Truck) o;
+        return size == truck.size && Objects.equals(address, truck.address);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(size, address);
+    }
 }

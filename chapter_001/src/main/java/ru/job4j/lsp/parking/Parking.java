@@ -1,20 +1,47 @@
 package ru.job4j.lsp.parking;
 
-public class Parking {
+import ru.job4j.lsp.parking.interfaces.IParking;
+import ru.job4j.lsp.parking.interfaces.Space;
 
-    private final ParkingSpace[] passengerSpaces;
-    private final ParkingSpace[] truckSpaces;
+import java.util.Arrays;
 
-    public Parking(final int passengersCapacity, final int trucksCapacity) {
-        this.passengerSpaces = new ParkingSpace[passengersCapacity];
-        this.truckSpaces = new ParkingSpace[trucksCapacity];
+public class Parking implements IParking {
+
+    private final Space[] passengerSpaces;
+    private final Space[] truckSpaces;
+
+    public Parking(final Space[] passengerSpaces, final Space[] truckSpaces) {
+        this.passengerSpaces = passengerSpaces;
+        this.truckSpaces = truckSpaces;
     }
 
-    public ParkingSpace[] getPassengerSpaces() {
+    @Override
+    public Space[] getPassengerSpaces() {
         return passengerSpaces;
     }
 
-    public ParkingSpace[] getTruckSpaces() {
+    @Override
+    public Space[] getTruckSpaces() {
         return truckSpaces;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        Parking parking = (Parking) o;
+        return Arrays.equals(passengerSpaces, parking.passengerSpaces)
+                && Arrays.equals(truckSpaces, parking.truckSpaces);
+    }
+
+    @Override
+    public int hashCode() {
+        int result = Arrays.hashCode(passengerSpaces);
+        result = 31 * result + Arrays.hashCode(truckSpaces);
+        return result;
     }
 }
